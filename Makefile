@@ -10,6 +10,7 @@ ERL=erl -I -pa ebin -noshell -eval
 all: compile docs
 
 compile:
+	mkdir -p $(EBIN_DIR)
 	$(ERLC)/*.erl
 
 docs:

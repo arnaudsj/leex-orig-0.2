@@ -592,7 +592,7 @@ pack_dfa([], _, Rs, PDFA) -> {PDFA,Rs}.
 
 out_file(St0, DFA, DF, Actions, Code) ->
     io:fwrite("Writing file ~s, ", [St0#leex.efile]),
-    case file:path_open([".", [code:lib_dir(),"/leex-0.1/include"]],
+    case file:path_open([".", [code:lib_dir(),"/leex-0.1/"]],
 			St0#leex.ifile, [read]) of
 	{ok,Ifile,_} ->
 	    St1 = St0#leex{iport=Ifile},
