@@ -1,0 +1,12 @@
+Author: Robert Virding <rvirding@gmail.com>
+Date: 2008-5-24
+Version: 0.1
+
+Leex is the missing piece of yecc in Erlang. It allows you to tokenize a textual input stream so that it can be grammatically analyzed and processed by yecc. It is NOT a part of OTP at this point.
+
+The source code included in this distribution was downloaded from http://forum.trapexit.org/viewtopic.php?p=43924#43924 where Robert Virding first made it available to the public.
+
+If you are looking at a good article on how to use leex and yecc please visit: http://hopper.squarespace.com/blog/2008/5/29/leex-and-yecc.html
+
+For more information please contact Robert Virding <rvirding@gmail.com>.
+
