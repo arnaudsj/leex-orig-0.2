@@ -24,7 +24,7 @@
 %% POSSIBILITY OF SUCH DAMAGE.
 
 %%% File    : leex.erl
-%%% Author  : Robert Virding (robert.virding@telia.com)
+%%% Author  : Robert Virding (rvirding@gmail.com)
 %%% Purpose : A Lexical Analyser Generator for Erlang.
 %%%
 %%% Most of the algorithms used here are taken pretty much as
@@ -109,7 +109,7 @@ filenames(File, Opts, St0) ->
     Xfile = filename:join(Dir, Base ++ ".xrl"),
     Efile = Base ++ ".erl",
     Gfile = Base ++ ".dot",
-    Ifile = "include/leexinc.hrl",
+    Ifile = "leexinc.hrl",
     Module = list_to_atom(Base),
     St1 = St0#leex{xfile=Xfile,
 		   ifile=Ifile,
@@ -592,8 +592,8 @@ pack_dfa([], _, Rs, PDFA) -> {PDFA,Rs}.
 
 out_file(St0, DFA, DF, Actions, Code) ->
     io:fwrite("Writing file ~s, ", [St0#leex.efile]),
-    case file:path_open([".", "include/", [code:lib_dir(),"/leex-0.1/"]],
-			St0#leex.ifile, [read]) of
+	LibInc = filename:join(code:lib_dir(leex), "include"),
+	case file:path_open([".","include",LibInc], St0#leex.ifile, [read]) of
 	{ok,Ifile,_} ->
 	    St1 = St0#leex{iport=Ifile},
 	    case file:open(St1#leex.efile, [write]) of
